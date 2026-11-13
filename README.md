@@ -94,13 +94,19 @@ Rather than acting as a black-box calculator that merely outputs a final number,
 - **Python 3.10+** (tested on Python 3.11, 3.12, 3.14)
 - **Node.js 18+** & **npm**
 
-### 1. Launch the FastAPI Backend
+### Step 1: Install Python Dependencies & Start FastAPI Backend
 
 ```bash
-# In the repository root
-pip install -r MAIN/backend/requirements.txt
+# 1. Install all dependencies from the repository root
+pip install -r requirements.txt
 
-# Start the server (runs on port 8000)
+# 2. Start the FastAPI backend server (choose either option below):
+
+# Option A: One-command root launcher (Recommended)
+python run_backend.py
+
+# Option B: Run uvicorn directly from MAIN/ directory
+cd MAIN
 python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
@@ -108,10 +114,13 @@ python -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload
 - **Alternative Docs (ReDoc):** [`http://127.0.0.1:8000/redoc`](http://127.0.0.1:8000/redoc)
 - **Health Check:** [`http://127.0.0.1:8000/api/health`](http://127.0.0.1:8000/api/health)
 
-### 2. Launch the Next.js Frontend
+### Step 2: Launch the Next.js Frontend
 
 ```bash
+# Navigate to the frontend directory
 cd MAIN/frontend
+
+# Install dependencies and start development server
 npm install
 npm run dev
 ```
@@ -125,6 +134,12 @@ Open [`http://localhost:3000`](http://localhost:3000) in your web browser.
 The original standalone desktop application is preserved and available for environments without web connectivity:
 
 ```bash
+# Option A: Run directly from the repository root
+pip install -r requirements.txt
+python main.py
+# (or: python run_desktop.py)
+
+# Option B: Run from inside MAIN/ directory
 cd MAIN
 pip install -r requirements.txt
 python main.py

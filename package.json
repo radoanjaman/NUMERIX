@@ -1,0 +1,12 @@
+{
+  "name": "numerix",
+  "version": "2.0.0",
+  "private": true,
+  "description": "NUMERIX — Interactive Mathematical Learning Platform & Numerical Simulator",
+  "scripts": {
+    "dev": "npm --prefix MAIN/frontend run dev",
+    "build": "npm --prefix MAIN/frontend run build",
+    "start": "npm --prefix MAIN/frontend run start",
+    "install:frontend": "npm --prefix MAIN/frontend install"
+  }
+}
