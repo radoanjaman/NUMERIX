@@ -15,8 +15,10 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+# --- Python Build / Venv Libs (Do not ignore frontend src/lib) ---
+/lib/
+/lib64/
+!**/src/lib/**
 parts/
 sdist/
 var/
