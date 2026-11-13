@@ -1,28 +1,36 @@
 """
-NUMERIX Design Tokens — color palette and typography constants.
+NUMERIX Design Tokens — Authentic Glassmorphism Theme.
+Palette aligned with the NUMERIX Glassmorphic Design System.
 """
 
 # ── Background layers ──────────────────────────────────────────────────────
-BG_MAIN       = "#0B1020"
-BG_SECONDARY  = "#11182A"
-BG_PANEL      = "#151F33"
-BG_ELEVATED   = "#1A2740"
+BG_MAIN       = "#080B10"   # Deep black base
+BG_SECONDARY  = "#111820"   # Charcoal frosted surface
+BG_PANEL      = "#101C28"   # Deep navy glass panel
+BG_ELEVATED   = "#162230"   # Elevated glass surface
 
-# ── Accent colors ──────────────────────────────────────────────────────────
-ACCENT_CYAN   = "#38BDF8"
+# ── Primary accents ────────────────────────────────────────────────────────
+ACCENT_CYAN   = "#38D9E8"   # Primary cyan glow
+ACCENT_TEAL   = "#16B8B0"   # Deep teal accent
+ACCENT_BLUE   = "#4B9DFF"   # Electric blue
+
+# ── Secondary accents ──────────────────────────────────────────────────────
+ACCENT_ORANGE = "#FF793F"   # Vibrant orange ambient highlight
+ACCENT_AMBER  = "#FFAD66"   # Warm amber highlight
 ACCENT_VIOLET = "#8B5CF6"
 
 # ── Text ───────────────────────────────────────────────────────────────────
-TEXT_PRIMARY   = "#F1F5F9"
-TEXT_SECONDARY = "#94A3B8"
+TEXT_PRIMARY   = "#F5F7FA"   # Crisp high-contrast white
+TEXT_SECONDARY = "#B5C0CC"   # Cool silver text
+TEXT_MUTED     = "#7E8A98"   # Muted gray label
 
 # ── Status ─────────────────────────────────────────────────────────────────
-SUCCESS = "#22C55E"
-WARNING = "#F59E0B"
-ERROR   = "#EF4444"
+SUCCESS = "#10B981"         # Emerald verified
+WARNING = "#FF793F"         # Warm orange warning
+ERROR   = "#F43F5E"         # Rose red error
 
 # ── Border ─────────────────────────────────────────────────────────────────
-BORDER = "#27364F"
+BORDER = "#253342"          # Subtle translucent glass border approximation
 
 # ── Typography ─────────────────────────────────────────────────────────────
 FONT_UI         = ("Segoe UI", 10)
