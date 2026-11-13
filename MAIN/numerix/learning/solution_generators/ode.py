@@ -180,10 +180,29 @@ def generate_euler_lesson(problem: ProblemRequest, result: SolverResult) -> Solu
         ),
     )
 
+    # Extract worked step for Step 1
+    worked_step = next((s for s in steps if s.related_iteration == 1 and s.step_type == "calculation"), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "The newly calculated values become the starting point for the next step. "
+        "The Euler forward step repeats across the interval until reaching $x_{\\text{end}}$."
+    )
+    rem_summary = (
+        f"Subsequent integration steps advance from $x_1$ to $x = {_fmt(final_x)}$, "
+        f"reaching the final state $y \\approx {_fmt(final_y)}$."
+    )
+
     return SolutionDocument(
         method="Euler",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Advances along the tangent slope $f(x_n, y_n)$ across step size $h$ to approximate the trajectory of an Initial Value Problem.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,
@@ -346,10 +365,29 @@ def generate_modified_euler_lesson(problem: ProblemRequest, result: SolverResult
         ),
     )
 
+    # Extract worked step for Step 1
+    worked_step = next((s for s in steps if s.related_iteration == 1 and s.step_type == "calculation"), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "The prediction and correction process repeats using the latest $x$ and $y$ values "
+        "to advance along the curve with second-order accuracy."
+    )
+    rem_summary = (
+        f"Subsequent predictor-corrector cycles advance the state to $x = {_fmt(final_x)}$, "
+        f"reaching $y \\approx {_fmt(final_y)}$."
+    )
+
     return SolutionDocument(
         method="Modified Euler",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Uses a predictor-corrector strategy that averages slopes at the beginning and predicted end of each step for second-order $\\mathcal{O}(h^2)$ accuracy.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,
@@ -514,10 +552,29 @@ def generate_rk4_lesson(problem: ProblemRequest, result: SolverResult) -> Soluti
         ),
     )
 
+    # Extract worked step for Step 1
+    worked_step = next((s for s in steps if s.related_iteration == 1 and s.step_type == "calculation"), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "RK4 combines four slope estimates across each interval to calculate a fourth-order accurate next value. "
+        "The same four-slope procedure is repeated at each subsequent step."
+    )
+    rem_summary = (
+        f"Subsequent RK4 steps advance across the domain with fourth-order precision to final state "
+        f"$y({_fmt(final_x)}) \\approx {_fmt(final_y)}$."
+    )
+
     return SolutionDocument(
         method="RK4",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Computes four exploratory slopes across each subinterval to produce a fourth-order $\\mathcal{O}(h^4)$ weighted average step.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,

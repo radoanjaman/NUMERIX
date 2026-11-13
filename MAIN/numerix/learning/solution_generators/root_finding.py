@@ -249,10 +249,31 @@ def generate_bisection_lesson(problem: ProblemRequest, result: SolverResult) -> 
         ),
     )
 
+    # Extract worked step for Iteration 1
+    worked_step = next((s for s in steps if s.related_iteration == 1 and s.step_type == "calculation"), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "The same midpoint formula is applied again using the updated interval. "
+        "At each iteration, the interval width is halved and the root estimate becomes more accurate "
+        "until the error tolerance is satisfied."
+    )
+    rem_summary = (
+        f"Subsequent iterations continue halving the bracket, reducing the error bound "
+        f"from {_fmt(result.iterations[0].approximate_error if result.iterations else tol)} "
+        f"down to {_fmt(final_err)}."
+    )
+
     return SolutionDocument(
         method="Bisection Method",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Finds real roots by iteratively halving an interval $[a, b]$ where the function changes sign.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,
@@ -425,10 +446,29 @@ def generate_false_position_lesson(problem: ProblemRequest, result: SolverResult
         verification=f"Evaluation confirms f({root_val_str}) = {f_root_str} ≈ 0.",
     )
 
+    # Extract worked step for Iteration 1
+    worked_step = next((s for s in steps if s.related_iteration == 1 and s.step_type == "calculation"), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "The next approximation is calculated using the updated interval and its latest endpoint function values. "
+        "The secant chord is redrawn dynamically until successive estimates satisfy the tolerance."
+    )
+    rem_summary = (
+        f"Subsequent iterations update the active bracket endpoint, achieving an approximation error "
+        f"of {_fmt(final_err)}."
+    )
+
     return SolutionDocument(
         method="False Position",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Finds real roots by drawing a linear secant chord between bracket endpoints and calculating its $x$-intercept.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,
@@ -605,10 +645,29 @@ def generate_newton_raphson_lesson(problem: ProblemRequest, result: SolverResult
         ),
     )
 
+    # Extract worked step for Iteration 1
+    worked_step = next((s for s in steps if s.related_iteration == 1 and s.step_type == "calculation"), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "The new approximation becomes the starting value for the next iteration. "
+        "The tangent line intersection formula is repeated until the error reaches the required tolerance."
+    )
+    rem_summary = (
+        f"Subsequent iterations apply the same tangent update, quadratically converging to error "
+        f"{_fmt(final_err)}."
+    )
+
     return SolutionDocument(
         method="Newton-Raphson",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Approximates roots by projecting tangent lines from the current point to the $x$-axis using calculus derivatives.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,

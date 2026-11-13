@@ -84,13 +84,23 @@ class SolutionDocument(BaseModel):
     """
     Complete structured educational lesson produced by the Learning Engine.
     Represents an interactive textbook chapter integrated with the solver.
+    Designed around the core principle:
+      Teach through ONE fully explained worked iteration,
+      explain what changes next in 1-3 sentences,
+      and display remaining iterations in a compact table.
     """
     method: str
     topic: str
     problem_statement: str
+    one_sentence_purpose: str = ""
+    essential_formula: FormulaCardModel | None = None
+    worked_step: SolutionStep | None = None
+    what_changes_next: str = ""
+    remaining_iterations_summary: str = ""
     learning_objectives: list[str] = Field(default_factory=list)
     prerequisites: list[str] = Field(default_factory=list)
     formulas: list[FormulaCardModel] = Field(default_factory=list)
     steps: list[SolutionStep] = Field(default_factory=list)
     final_interpretation: FinalInterpretation
     practice_questions: list[KnowledgeCheckQuestion] = Field(default_factory=list)
+    detailed_theory: str | None = None

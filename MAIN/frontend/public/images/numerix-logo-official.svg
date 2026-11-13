@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 275" fill="none">
+  <defs>
+    <linearGradient id="numOrangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA826"/>
+      <stop offset="100%" stop-color="#F28500"/>
+    </linearGradient>
+    <filter id="glassShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- MATHEMATICAL EMBLEM (Hexagon with 4 Quadrants & Cross) -->
+  <g transform="translate(24, 0)" filter="url(#glassShadow)">
+    <!-- Top-Left Quadrant (+) -->
+    <path d="M 100 24 L 28 66 L 28 98 L 92 98 L 92 24 Z" 
+          fill="url(#numOrangeGrad)" stroke="#C85A17" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Plus symbol (+) -->
+    <path d="M 60 52 L 60 70 M 51 61 L 69 61" 
+          stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Top-Right Quadrant (-) -->
+    <path d="M 108 24 L 180 66 L 180 98 L 116 98 L 116 24 Z" 
+          fill="url(#numOrangeGrad)" stroke="#C85A17" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Minus symbol (-) -->
+    <path d="M 139 61 L 157 61" 
+          stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Bottom-Left Quadrant (÷) -->
+    <path d="M 28 114 L 28 146 L 100 188 L 100 114 L 28 114 Z" 
+          fill="url(#numOrangeGrad)" stroke="#C85A17" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Division symbol (÷) -->
+    <line x1="51" y1="151" x2="69" y2="151" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="60" cy="141" r="3" fill="#FFFFFF"/>
+    <circle cx="60" cy="161" r="3" fill="#FFFFFF"/>
+
+    <!-- Bottom-Right Quadrant (×) -->
+    <path d="M 180 114 L 180 146 L 108 188 L 108 114 L 180 114 Z" 
+          fill="url(#numOrangeGrad)" stroke="#C85A17" stroke-width="4" stroke-linejoin="round"/>
+    <!-- Multiplication symbol (×) -->
+    <path d="M 139 142 L 157 160 M 157 142 L 139 160" 
+          stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- Dark Teal Mathematical Cross -->
+    <!-- Vertical Beam -->
+    <rect x="99" y="8" width="10" height="196" rx="2" fill="#2E4A4D" stroke="#1F3639" stroke-width="1.5"/>
+    <!-- Horizontal Beam -->
+    <rect x="6" y="101" width="196" height="10" rx="2" fill="#2E4A4D" stroke="#1F3639" stroke-width="1.5"/>
+  </g>
+
+  <!-- NUMERIX Wordmark -->
+  <text x="128" y="258" 
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" 
+        font-size="34" 
+        font-weight="900" 
+        letter-spacing="3" 
+        text-anchor="middle" 
+        fill="#2E4A4D">NUMERIX</text>
+</svg>

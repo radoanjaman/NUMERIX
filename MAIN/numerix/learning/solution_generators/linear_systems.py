@@ -234,10 +234,29 @@ def generate_gauss_elimination_lesson(problem: ProblemRequest, result: SolverRes
         ),
     )
 
+    # First meaningful elimination step
+    worked_step = next((s for s in steps if s.step_type == "matrix_operation" and s.matrix_snapshot is not None), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "The same elimination process is applied to the remaining rows and columns until an upper triangular matrix is obtained. "
+        "Back substitution then produces the exact solution vector."
+    )
+    rem_summary = (
+        f"Subsequent row operations eliminate all subdiagonal entries across the {n}x{n} matrix, "
+        f"followed by backward substitution for each unknown."
+    )
+
     return SolutionDocument(
         method="Gauss Elimination",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Transforms an augmented matrix $[A \\mid b]$ into upper-triangular form via row operations with partial pivoting, followed by back-substitution.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,
@@ -409,10 +428,29 @@ def generate_gauss_jordan_lesson(problem: ProblemRequest, result: SolverResult) 
         verification=f"Residual norm {_fmt(res_norm)} confirms exact agreement.",
     )
 
+    # First meaningful pivot normalization / elimination step
+    worked_step = next((s for s in steps if s.step_type == "matrix_operation" and s.matrix_snapshot is not None), None)
+    if not worked_step and len(steps) > 1:
+        worked_step = steps[1]
+
+    what_changes_next = (
+        "The process repeats for the remaining pivot columns until the coefficient matrix becomes the identity matrix. "
+        "Each equation then immediately yields the value of one unknown."
+    )
+    rem_summary = (
+        f"Remaining pivot operations reduce all off-diagonal entries across the {n}x{n} matrix to zero, "
+        "yielding the final Reduced Row Echelon Form (RREF)."
+    )
+
     return SolutionDocument(
         method="Gauss-Jordan",
         topic=concept["topic"],
         problem_statement=problem_statement,
+        one_sentence_purpose="Reduces an augmented linear matrix $[A \\mid b]$ completely to Reduced Row Echelon Form (RREF) so the solution vector can be read directly.",
+        essential_formula=formulas[0] if formulas else None,
+        worked_step=worked_step,
+        what_changes_next=what_changes_next,
+        remaining_iterations_summary=rem_summary,
         learning_objectives=concept["learning_objectives"],
         prerequisites=concept["prerequisites"],
         formulas=formulas,
