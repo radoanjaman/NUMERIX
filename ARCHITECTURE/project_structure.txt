@@ -1,0 +1,96 @@
+
+NUMERIX/
+│
+├── main.py
+├── requirements.txt
+├── README.md
+├── config.py
+│
+├── assets/
+│   ├── icons/
+│   ├── images/
+│   └── styles/
+│
+├── core/
+│   ├── __init__.py
+│   ├── equation_parser.py
+│   ├── validators.py
+│   ├── error_calculator.py
+│   ├── execution_timer.py
+│   └── result_model.py
+│
+├── algorithms/
+│   ├── __init__.py
+│   │
+│   ├── root_finding/
+│   │   ├── __init__.py
+│   │   ├── bisection.py
+│   │   ├── false_position.py
+│   │   └── newton_raphson.py
+│   │
+│   ├── linear_systems/
+│   │   ├── __init__.py
+│   │   ├── gauss_elimination.py
+│   │   └── gauss_jordan.py
+│   │
+│   └── differential_equations/
+│       ├── __init__.py
+│       ├── euler.py
+│       ├── modified_euler.py
+│       └── rk4.py
+│
+├── gui/
+│   ├── __init__.py
+│   ├── main_window.py
+│   ├── dashboard.py
+│   ├── sidebar.py
+│   ├── components/
+│   │   ├── input_fields.py
+│   │   ├── result_table.py
+│   │   ├── graph_panel.py
+│   │   └── navigation.py
+│   │
+│   └── pages/
+│       ├── home_page.py
+│       ├── root_finding_page.py
+│       ├── linear_systems_page.py
+│       ├── ode_page.py
+│       ├── comparison_page.py
+│       ├── history_page.py
+│       └── about_page.py
+│
+├── visualization/
+│   ├── function_plotter.py
+│   ├── convergence_plotter.py
+│   ├── ode_plotter.py
+│   └── error_plotter.py
+│
+├── services/
+│   ├── solver_service.py
+│   ├── comparison_service.py
+│   └── report_service.py
+│
+├── storage/
+│   ├── history_manager.py
+│   └── history.json
+│
+├── tests/
+│   ├── test_root_finding.py
+│   ├── test_linear_systems.py
+│   ├── test_ode.py
+│   └── test_validation.py
+│
+└── docs/
+    ├── user_guide.md
+    └── algorithm_documentation.md
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
+What each folder does
+- core/: Common mathematical utilities, input parsing, validation, error calculation and result formatting.
+- algorithms/: All numerical algorithms. No GUI code should be placed here.
+- gui/: Every screen, button, input form, navigation element and result table.
+- visualization/: All mathematical graphs.
+- services/: Connects GUI requests to algorithms and manages comparisons.
+- storage/: Saves previous calculations.
+- tests/: Tests algorithms against known answers and reference calculations.
+- docs/: User documentation and mathematical explanations.
