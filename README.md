@@ -15,7 +15,8 @@
 </p>
 
 ---
-
+## Try it out
+https://numerix-2-0.onrender.com/
 ## 1. What is NUMERIX?
 
 **NUMERIX** is an interactive numerical methods workbench and mathematical learning platform built for university Numerical Methods Laboratory courses, STEM students, and self-study.
